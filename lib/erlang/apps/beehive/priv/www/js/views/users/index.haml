@@ -4,13 +4,13 @@
 %table
   %thead
     %tr
-      %th User
+      %th Email
       %th Level
   %tfoot
     %tr
       %td ...
   %tbody
-    :each user in users_list
+    :each user in users
       %tr
-        %td= user.name
+        %td= user.email
         %td= user.level
