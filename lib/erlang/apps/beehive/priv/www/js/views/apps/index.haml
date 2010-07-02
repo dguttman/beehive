@@ -28,4 +28,4 @@
         %td= app.owners
         %td= app.updated_at
         %td= app.type
-        %td= app.latest_error.timestamp
+        %td= (app.latest_error && app.latest_error.timestamp)

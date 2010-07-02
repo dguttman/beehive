@@ -22,10 +22,9 @@ get([Name], _Data) ->
   end;
 get(_, _Data) -> 
   All = apps:all(),
-  {"apps", lists:map(fun(A) ->
+  lists:map(fun(A) ->
       compile_app_details(A)
-    end, All)
-  }.
+    end, All).
 
 post([], Data) ->
   case auth_utils:get_authorized_user(Data) of

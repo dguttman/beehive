@@ -14,9 +14,7 @@
 
 get(_, _Data) -> 
   All = bees:all(),
-  O = {
-    "bees",
-    lists:map(fun(B) ->
+  O = lists:map(fun(B) ->
       [
         {"app_name", B#bee.app_name},
         {"host", B#bee.host},
@@ -25,8 +23,7 @@ get(_, _Data) ->
         {"commit", B#bee.commit_hash},
         {"status", B#bee.status}
       ]
-    end, All)
-  },
+    end, All),
   O.
 
 post(_Path, Data) ->
