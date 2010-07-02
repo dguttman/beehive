@@ -3,8 +3,6 @@
 % Extra time to give an app instance breathing room
 -define (TIME_BUFFER, 20).
 
--define(BUFSIZ, (128*1024)).
-
 % Time period to kill an instance after: defaults to an hour
 -define (RUN_INSTANCE_TIME_PERIOD, 3600).
 
@@ -25,12 +23,6 @@
 % EVENTS
 -define (EVENT_MANAGER, event_manager).
 -define (NOTIFY (Event), node_manager:notify(Event)).
-
-% Port to start on
--define (STARTING_PORT, 5001).
-
-% Expand when
--define (EXPAND_WHEN_PENDING_REQUESTS, 3).
 
 % Maximum recv_body() length of 1MB
 -define(MAX_RECV_BODY, (1024*1024)).
@@ -73,8 +65,7 @@
   name,
   url,
   type = dynamic,                   % dynamic | static (if this is set to static, we cannot launch a new one)
-  routing_param = undefined,        % determine the method of choosing the backend
-  bee_picker = bee_strategies,      % Defined the bee picker module (defaults to bee_strategies)
+  routing_param = 'Host',
   timeout,
   sticky        = false,            % if an app is sticky, the apps are not requested after timeout time
   min_instances = 0,
