@@ -13,7 +13,7 @@
 -export ([get/2, post/2, put/2, delete/2]).
 
 get(_, _Data) -> 
-  {events, dashboard_event_handler:get_latest_events()}.
+  dashboard_event_handler:get_latest_events().
 
 post(_Path, _Data) -> error("unhandled").
 put(_Path, _Data) -> error("unhandled").

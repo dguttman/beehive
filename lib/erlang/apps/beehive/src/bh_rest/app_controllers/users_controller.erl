@@ -31,10 +31,9 @@ get([Email], _Data) ->
 	end;
 get(_, _Data) -> 
   All = users:all(),
-  { "users", lists:map(fun(A) ->
+  lists:map(fun(A) ->
       [{"level", A#user.level}, {"email", A#user.email}]
-    end, All)
-  }.
+    end, All).
 
 post([Name, "keys", "new"], Data) ->
   auth_utils:run_if_admin(fun(_) ->
