@@ -13,3 +13,4 @@ deps
 rel/beehive
 node.log
 .eunit
+MnesiaCore.beehive@127.0.0.1*
